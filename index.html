@@ -1,0 +1,68 @@
+<html>
+	<body>
+		<script>
+		//GameLogic
+			var foo=new Sound("https://github.com/dreamsofjazz/dreamsofjazz/blob/master/HighSchoolSucks.m4a",100,true);
+foo.start();
+//foo.stop();
+//foo.start();
+//foo.init(100,false);
+//foo.remove();
+		</script>
+		<script>
+		//Sound
+			function Sound(source,volume,loop)
+{
+    this.source=source;
+    this.volume=volume;
+    this.loop=loop;
+    var son;
+    this.son=son;
+    this.finish=false;
+    this.stop=function()
+    {
+        document.body.removeChild(this.son);
+    }
+    this.start=function()
+    {
+        if(this.finish)return false;
+        this.son=document.createElement("embed");
+        this.son.setAttribute("src",this.source);
+        this.son.setAttribute("hidden","true");
+        this.son.setAttribute("volume",this.volume);
+        this.son.setAttribute("autostart","true");
+        this.son.setAttribute("loop",this.loop);
+        document.body.appendChild(this.son);
+    }
+    this.remove=function()
+    {
+        document.body.removeChild(this.son);
+        this.finish=true;
+    }
+    this.init=function(volume,loop)
+    {
+        this.finish=false;
+        this.volume=volume;
+        this.loop=loop;
+    }
+}
+/*
+Documentation:
+
+Sound takes three arguments. The url of the sound, the volume (from 0 to 100), and the loop (true to loop, false not to loop).
+stop allow to start after (contrary to remove).
+init re-set the argument volume and loop.
+
+Example:
+
+var foo=new Sound("url",100,true);
+foo.start();
+foo.stop();
+foo.start();
+foo.init(100,false);
+foo.remove();
+//Here you you cannot start foo any more
+*/
+		</script>
+	</body>
+</html>
